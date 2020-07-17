@@ -26,3 +26,23 @@ RUN curl -fSsL -O https://bootstrap.pypa.io/get-pip.py && \
     python3 get-pip.py && \
     rm get-pip.py
 
+# Install useful Python packages using pip
+RUN pip3 --no-cache-dir install --upgrade \
+    Cython \  
+    h5py \
+    jupyter \
+    matplotlib \
+    numpy \
+    pandas \
+    Pillow \
+    scipy \
+    scikit-learn \
+    scikit-image \
+    six \
+    tqdm
+
+# Expose ports for Jupyter notebook (8888)
+EXPOSE 8888
+
+CMD ["/bin/bash"]
+

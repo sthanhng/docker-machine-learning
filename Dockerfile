@@ -2,6 +2,9 @@ FROM ubuntu:18.04
 
 LABEL maintainer=sthanhng@gmail.com
 
+ARG TENSORFLOW_ARCH=cpu
+ARG TENSORFLOW_VERSION=2.0
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         ca-certificates \
@@ -40,6 +43,9 @@ RUN pip3 --no-cache-dir install --upgrade \
     scikit-image \
     six \
     tqdm
+
+# Install TensorFlow 2.0 CPU
+RUN pip3 --no-cache-dir install tensorflow==2.0.0
 
 # Setting Jupyter notebook configurations
 COPY jupyter_notebook_config.py /root/.jupyter/

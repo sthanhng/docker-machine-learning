@@ -2,9 +2,6 @@ FROM ubuntu:18.04
 
 LABEL maintainer=sthanhng@gmail.com
 
-ARG TENSORFLOW_ARCH=cpu
-ARG TENSORFLOW_VERSION=2.0.0
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         ca-certificates \
@@ -45,6 +42,9 @@ RUN pip3 --no-cache-dir install --upgrade \
     tqdm
 
 # Install TensorFlow 2.0 CPU
+ARG TENSORFLOW_ARCH=cpu
+ARG TENSORFLOW_VERSION=2.0.0
+
 RUN pip3 --no-cache-dir install tensorflow==${TENSORFLOW_VERSION}
 
 # Setting Jupyter notebook configurations

@@ -41,6 +41,9 @@ RUN pip3 --no-cache-dir install --upgrade \
     six \
     tqdm
 
+# Setting Jupyter notebook configurations
+COPY jupyter_notebook_config.py /root/.jupyter/
+
 # Expose ports for Jupyter notebook (8888)
 EXPOSE 8888
 
